@@ -4,18 +4,26 @@ module ActiveAdmin
     class SiteTitle < Component
 
       def tag_name
-        'h1'
+        'div'
       end
 
       def build(namespace)
         super(id: "site_title")
         @namespace = namespace
+        @site_title_navigation_menu = @namespace.fetch_menu(:site_title_navigation)
 
-        if site_title_link?
-          text_node site_title_with_link
-        else
-          text_node site_title_content
+        div class: "tob-bar-logo" do
+          if site_title_link?
+            text_node site_title_with_link
+          else
+            text_node site_title_content
+          end
         end
+        # if site_title_navigation?
+          div class: "site-title-navigation header",id: 'top_header' do
+            build_site_title_navigation
+          end
+        # end
       end
 
       def site_title_link?
@@ -24,6 +32,14 @@ module ActiveAdmin
 
       def site_title_image?
         @namespace.site_title_image.present?
+      end
+
+      def site_title_navigation?
+        @namespace.site_title_navigation.present?
+      end
+
+      def build_site_title_navigation
+        insert_tag view_factory.site_title_navigation, @site_title_navigation_menu, class: 'header-item tabs'
       end
 
       private

@@ -49,6 +49,7 @@ module ActiveAdmin
           within @body do
             div id: "wrapper" do
               build_unsupported_browser
+              build_site_title
               build_header
               build_title_bar
               build_page_content
@@ -61,6 +62,10 @@ module ActiveAdmin
           if active_admin_namespace.unsupported_browser_matcher =~ controller.request.user_agent
             insert_tag view_factory.unsupported_browser
           end
+        end
+
+        def build_site_title
+          insert_tag view_factory.site_title, active_admin_namespace
         end
 
         def build_header

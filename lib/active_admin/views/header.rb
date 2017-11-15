@@ -9,7 +9,7 @@ module ActiveAdmin
         @menu = menu
         @utility_menu = @namespace.fetch_menu(:utility_navigation)
 
-        build_site_title
+        #build_site_title
         build_utility_navigation
         #build_global_navigation
       end

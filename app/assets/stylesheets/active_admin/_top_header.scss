@@ -1,17 +1,17 @@
 //= depend_on_asset "active_admin/nested_menu_arrow.gif"
 //= depend_on_asset "active_admin/nested_menu_arrow_dark.gif"
-// ----------------------------------- Header
-#header {
-  @include primary-gradient;
-  @include shadow;
-  @include text-shadow(#000);
+// ----------------------------------- top_header
+#top_header {
   display: table;
   height: 20px;
-  width: 100%;
+  width: 50%;
   overflow: visible;
   position: inherit;
   padding: 5px 0;
   z-index: 900;
+  background: white;
+  border: none;
+  color: #5E6469;
 
   h1 {
     display: table-cell;
@@ -165,6 +165,18 @@
   }
 
 }
-#header ul.tabs > li {
+#top_header ul.tabs > li {
     font-size: 14px;
+    color: #5E6469;
+}
+#site_title_image {
+    padding-left: 30px;
+    padding-top: 10px;
+}
+.tob-bar-logo {
+   border: none;
+   border-radius: 4px;
+}
+#top_header ul.tabs > li a {
+   color: #5E6469;
 }
