@@ -127,7 +127,7 @@ form {
   input[type=time],
   textarea {
     width: calc(80% - #{$text-input-total-padding});
-    display: block;
+    display: inline;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
